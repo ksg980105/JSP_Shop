@@ -25,11 +25,14 @@ myshop\member\register.jsp<br>
 		</tr>
 		<tr>
 			<th bgcolor="yellow">* 비밀 번호</th>
-			<td><input type="text" name="password"></td>
+			<td><input type="password" name="password"></td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow">* 비밀 번호 확인</th>
-			<td><input type="text" name="password2"></td>
+			<td>
+				<input type="password" name="repassword" onKeyUp="repassword_keyup()">
+				<span id="pwmessage"></span>
+			</td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow">E-Mail</th>

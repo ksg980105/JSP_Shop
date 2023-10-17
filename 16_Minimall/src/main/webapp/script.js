@@ -4,6 +4,7 @@
 
 var isCheck = false;
 var use;
+var pwuse;
 
 $(function(){
 	$('input[name=id]').keydown(function(){
@@ -24,6 +25,22 @@ function writeSave(){	//가입하기 눌렀을 때
 		return false;
 	}else if(isCheck == false){
 		alert('중복체크 먼저 하세요');
+		return false;
+	}
+	
+	if($('input[name=password]').val()==""){
+		alert('비밀번호를 입력하세요.');
+		$('input[name=password]').focus();
+		return false;
+	}
+	if($('input[name=repassword]').val()==""){
+		alert('비밀번호 확인을 입력하세요.');
+		$('input[name=repassword]').focus();
+		return false;
+	}
+	
+	if(pwuse == "nosame"){
+		alert('비밀번호 일치하지 않습니다.');
 		return false;
 	}
 }
@@ -55,4 +72,15 @@ function duplicate(){	//중복체크 눌렀을 때
 				}
 			}
 		});
+}
+
+function repassword_keyup(){
+	//alert(1);
+	if($('input[name=password]').val() == $('input[name=repassword]').val()){
+		$('#pwmessage').html("<font color=blue>비번일치</font>");
+		pwuse = "same";
+	}else{
+		$('#pwmessage').html("<font color=red>비번 불일치</font>");
+		pwuse = "nosame";
+	}
 }
