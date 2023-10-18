@@ -57,17 +57,35 @@ public class CategoryDAO {
 		ArrayList<CategoryDTO> lists = new ArrayList<CategoryDTO>();
 		
 		String sql = "select * from category order by cnum asc";
-		ps = conn.prepareStatement(sql);
-		rs = ps.executeQuery();
-		while(rs.next()) {
-			CategoryDTO cdto = new CategoryDTO();
-			cdto.setCnum(Integer.parseInt(rs.getString("cnum")));
-			cdto.setCode(rs.getString("code"));
-			cdto.setCname(rs.getString("cname"));
-			
-			lists.add(cdto);
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				CategoryDTO cdto = new CategoryDTO();
+				cdto.setCnum(Integer.parseInt(rs.getString("cnum")));
+				cdto.setCode(rs.getString("code"));
+				cdto.setCname(rs.getString("cname"));
+				
+				lists.add(cdto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return lists;
 	}
+	
+	public int deletecate(int cnum) throws Exception {
+		Connection conn = getConnection();
+		
+		int cnt = -1;
+		String sql = "delete from category where cnum=?";
+		
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, cnum);
+		cnt = ps.executeUpdate();
+		
+		return cnt;
+	}
+	
 	
 }

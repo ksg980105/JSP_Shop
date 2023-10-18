@@ -10,8 +10,7 @@
 	ArrayList<CategoryDTO> lists = cdao.getAllcate();
 %>
 
-	<td colspan="6" align="center">
-		<form method="post" action="cate_list_proc.jsp" name="catelist">
+	<td colspan="6" align="center" valign="top">
 			<table border="1" width="500" align="center">
 			<caption><b>카테고리 목록</b></caption>
 				<tr bgcolor="yellow">
@@ -21,6 +20,15 @@
 					<td width="10%" align="center">삭제</td>
 				</tr>
 				<%
+					if(lists.size()==0){
+				%>
+				<tr>
+						<td colspan="4">등록된 카테고리가 없습니다.</td>
+				</tr>
+				<%
+					}else{
+				%>
+				<%				
 					for(int i=0; i<lists.size(); i++){
 						CategoryDTO cdto = lists.get(i);
 				%>
@@ -28,10 +36,10 @@
 					<td><%=cdto.getCnum()%></td>
 					<td><%=cdto.getCode()%></td>
 					<td><%=cdto.getCname()%></td>
-					<td><a href="">삭제</a></td>
+					<td><a href="cate_delete.jsp?cnum=<%=cdto.getCnum()%>">삭제</a></td>
 				</tr>
-				<%} %>
+					<%}
+				}%>
 			</table>
-		</form>
 	</td>
 <jsp:include page="bottom.jsp"/>

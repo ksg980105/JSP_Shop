@@ -15,16 +15,16 @@ $(function(){
 });
  
 function writeSave(){	//가입하기 눌렀을 때
-	if($('input[name=id]').val()==""){
-		alert('아이디를 입력하세요');
-		$('input[name=id]').focus();
-		isBlack = true;
+	if($("input[name=id]").val()==""){
+		alert("아이디를 입력하세요");
+		$("input[name=id]").focus();
+		isBlank = true;
 		return false;
 	}else if(use == "impossible"){
-		alert('이미 사용중인 아이디입니다.');
+		alert("이미 사용중인 아이디입니다.");
 		return false;
 	}else if(isCheck == false){
-		alert('중복체크 먼저 하세요');
+		alert("중복체크 먼저 하세요");
 		return false;
 	}
 	
