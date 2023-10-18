@@ -43,6 +43,7 @@ function writeSave(){	//가입하기 눌렀을 때
 		alert('비밀번호 일치하지 않습니다.');
 		return false;
 	}
+	
 }
 
 function duplicate(){	//중복체크 눌렀을 때
@@ -74,6 +75,7 @@ function duplicate(){	//중복체크 눌렀을 때
 		});
 }
 
+
 function repassword_keyup(){
 	//alert(1);
 	if($('input[name=password]').val() == $('input[name=repassword]').val()){
@@ -84,3 +86,21 @@ function repassword_keyup(){
 		pwuse = "nosame";
 	}
 }
+
+function pwcheck(){ //비밀번호 유효성 검사	
+	pvalue = $('input[name="password"]').val();
+	var regexp = /^[a-z0-9]{3,8}$/; //3글자~8글자사이
+	
+	if(pvalue.search(regexp) == -1){
+		alert('길이는 3~8글자로 입력하세요.');
+		return false;
+	}
+	
+	var chk_eng = pvalue.search(/[a-z]/);
+	var chk_num = pvalue.search(/[0-9]/);
+	if(chk_eng<0 || chk_num<0){
+		alert('영문 소문자/숫자 조합이 아닙니다.');
+		return false;
+	}
+}
+

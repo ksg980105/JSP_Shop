@@ -25,7 +25,10 @@ myshop\member\register.jsp<br>
 		</tr>
 		<tr>
 			<th bgcolor="yellow">* 비밀 번호</th>
-			<td><input type="password" name="password"></td>
+			<td>
+				<input type="password" name="password" onblur="pwcheck()">
+				<span id="pwcheck"></span>
+			</td>
 		</tr>
 		<tr>
 			<th bgcolor="yellow">* 비밀 번호 확인</th>
