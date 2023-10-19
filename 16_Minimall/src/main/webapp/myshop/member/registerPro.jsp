@@ -1,16 +1,16 @@
-<%@page import="my.member.MemberDAO"%>
+<%@page import="my.member.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%
-    request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 %>
 
-<jsp:useBean id="mdto" class="my.member.MemberDTO"/>
+<jsp:useBean id="mdto" class="my.member.MemberBean"/>
 <jsp:setProperty property="*" name="mdto"/>
 
 <%
-	MemberDAO mdao = MemberDAO.getInstance();
+MemberDao mdao = MemberDao.getInstance();
 	int cnt = mdao.insertMember(mdto);
 	
 	String msg,url;

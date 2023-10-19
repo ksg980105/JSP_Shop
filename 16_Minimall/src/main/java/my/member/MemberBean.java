@@ -1,6 +1,6 @@
 package my.member;
 
-public class MemberDTO {
+public class MemberBean {
 	private int no;
 	private String name;
 	private String id;

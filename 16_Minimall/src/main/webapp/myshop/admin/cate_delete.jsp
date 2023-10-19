@@ -1,11 +1,11 @@
-<%@page import="my.shop.CategoryDAO"%>
+<%@page import="my.shop.CategoryDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%
 	int cnum = Integer.parseInt(request.getParameter("cnum"));
 
-	CategoryDAO cdao = CategoryDAO.getInstance();
+	CategoryDao cdao = CategoryDao.getInstance();
 	int cnt = cdao.deletecate(cnum);
 	
 	String msg, url;

@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="my.shop.CategoryDAO"%>
-<%@page import="my.shop.CategoryDTO"%>
+<%@page import="my.shop.CategoryDao"%>
+<%@page import="my.shop.CategoryBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -15,17 +15,17 @@
 					<td align=left>
 						<select name="pcategory_fk">
 						<%
-							CategoryDAO cdao = CategoryDAO.getInstance();
-							ArrayList<CategoryDTO> lists = cdao.getAllcate();
-							if(lists.size()==0){
+						CategoryDao cdao = CategoryDao.getInstance();
+															ArrayList<CategoryBean> lists = cdao.getAllcate();
+															if(lists.size()==0){
 						%>
 							<option value="">카테고리 없음</option>		
-						<%	
-							}else{
-								for(CategoryDTO cb : lists){
-									String cname = cb.getCname();
-									String code = cb.getCode();
-						%>
+						<%
+								}else{
+														for(CategoryBean cb : lists){
+															String cname = cb.getCname();
+															String code = cb.getCode();
+								%>
 									<option value="<%=code%>"><%=cname %>[<%=code%>]</option>
 						<%
 								}
@@ -43,7 +43,7 @@
 				<tr>
 					<th class="m2">상품코드</th>
 					<td align=left>
-						<input type="text" name="code" value="상품코드">
+						<input type="text" name="pcode" value="상품코드">
 					</td>
 				</tr>
 				<tr>
@@ -85,6 +85,7 @@
 					<th bgcolor="yellow">상품 소개</th>
 					<td align=left>
 						<textarea cols="50" rows="5" style="resize:none;" name="pcontents"></textarea>
+						<%--resize:none textarea 크기 늘리지 못하게 설정--%>
 					</td>
 				</tr>
 				<tr>

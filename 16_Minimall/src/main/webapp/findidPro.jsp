@@ -1,17 +1,18 @@
-<%@page import="my.member.MemberDAO"%>
-<%@page import="my.member.MemberDTO"%>
+<%@page import="my.member.MemberDao"%>
+<%@page import="my.member.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%
+
 	request.setCharacterEncoding("UTF-8");
 
 	String name = request.getParameter("name");
 	String ssn1 = request.getParameter("ssn1");
 	String ssn2 = request.getParameter("ssn2");
 	
-	MemberDAO mdao = MemberDAO.getInstance();
-	MemberDTO mdto = mdao.getMemberByNameAndSsn(name,ssn1,ssn2);
+	MemberDao mdao = MemberDao.getInstance();
+	MemberBean mdto = mdao.getMemberByNameAndSsn(name,ssn1,ssn2);
 	
 	String viewPage;
 	String id;

@@ -1,13 +1,13 @@
-<%@page import="my.shop.CategoryDAO"%>
+<%@page import="my.shop.CategoryDao"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="my.shop.CategoryDTO"%>
+<%@page import="my.shop.CategoryBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
 <jsp:include page="top.jsp"/>
 <%
-	CategoryDAO cdao = CategoryDAO.getInstance();
-	ArrayList<CategoryDTO> lists = cdao.getAllcate();
+CategoryDao cdao = CategoryDao.getInstance();
+	ArrayList<CategoryBean> lists = cdao.getAllcate();
 %>
 
 	<td colspan="6" align="center" valign="top">
@@ -20,17 +20,17 @@
 					<td width="10%" align="center">삭제</td>
 				</tr>
 				<%
-					if(lists.size()==0){
+				if(lists.size()==0){
 				%>
 				<tr>
 						<td colspan="4">등록된 카테고리가 없습니다.</td>
 				</tr>
 				<%
-					}else{
+				}else{
 				%>
-				<%				
-					for(int i=0; i<lists.size(); i++){
-						CategoryDTO cdto = lists.get(i);
+				<%
+				for(int i=0; i<lists.size(); i++){
+								CategoryBean cdto = lists.get(i);
 				%>
 				<tr class="m3">
 					<td><%=cdto.getCnum()%></td>
