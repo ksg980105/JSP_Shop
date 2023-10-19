@@ -3,6 +3,6 @@
 
 <%@ include file="mall_top.jsp"%>
 
-	myshop/display/mall.jsp
+	myshop/display/mall_cartList.jsp
 
 <%@ include file="mall_bottom.jsp"%>
