@@ -112,6 +112,54 @@ public class ProductDao {
 		cnt = ps.executeUpdate();
 		return cnt;
 	}
+	
+	public ProductBean getAllProductByPnum(int pnum) throws Exception {
+	      conn = getConnection();
+	      
+	      ProductBean pdto = null;
+	      String sql = "select * from product where pnum=? order by pnum";
+	      ps = conn.prepareStatement(sql);
+		  ps.setInt(1, pnum);
+	      rs = ps.executeQuery();
+	      
+	      while(rs.next()) {
+	    	  pdto = new ProductBean();
+		      pdto.setPnum(rs.getInt("pnum"));
+		      pdto.setPname(rs.getString("pname"));
+		      pdto.setPcategory_fk(rs.getString("pcategory_fk"));
+		      pdto.setPcompany(rs.getString("pcompany"));
+		      pdto.setPimage(rs.getString("pimage"));
+		      pdto.setPqty(rs.getInt("pqty"));
+		      pdto.setPrice(rs.getInt("price"));
+		      pdto.setPspec(rs.getString("pspec"));
+		      pdto.setPcontents(rs.getString("pcontents"));
+		      pdto.setPinputdate(rs.getString("pinputdate"));
+		   }
+	      
+	      return pdto;
+	}
+	
+	public int updateProduct(MultipartRequest mr, String img ) throws Exception{
+		conn = getConnection();
+		int cnt = -1;
+		String sql = "update product set pname=?, pcompany=?, pimage=?, pqty=?, price=?, pspec=?, pcontents=?, point=? where pnum=?";
+
+			ps = conn.prepareStatement(sql);
+
+			ps.setString(1,mr.getParameter("pname"));
+			ps.setString(2,mr.getParameter("pcompany"));
+			ps.setString(3,img);
+			ps.setInt(4,Integer.parseInt(mr.getParameter("pqty")));				
+			ps.setInt(5,Integer.parseInt(mr.getParameter("price")));
+			ps.setString(6,mr.getParameter("pspec"));
+			ps.setString(7,mr.getParameter("pcontents"));
+			ps.setInt(8,Integer.parseInt(mr.getParameter("point")));
+			ps.setInt(9,Integer.parseInt(mr.getParameter("pnum")));
+
+			cnt = ps.executeUpdate();
+
+			return cnt;
+	}//updateProduct
 }
 
 
