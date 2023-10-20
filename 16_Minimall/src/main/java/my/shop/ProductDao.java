@@ -187,6 +187,24 @@ public class ProductDao {
 		lists = makeArrayList(rs);
 		return lists;
 	}//getSelectByCategory
+	
+	public ProductBean getSelectByPnum(int pnum) throws Exception {
+		Connection conn = getConnection();
+		ArrayList<ProductBean> lists = new ArrayList<ProductBean>();
+		
+		String sql="select * from product where pnum = ?";
+		ProductBean pb = new ProductBean();
+		
+		
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, pnum);
+		rs = ps.executeQuery();
+			
+		lists = makeArrayList(rs);
+		pb = lists.get(0); 
+		
+		return pb;
+	}
 }
 
 
