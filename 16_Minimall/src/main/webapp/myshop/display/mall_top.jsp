@@ -59,7 +59,7 @@
 		%>
 				<tr>
 					<td>
-						<a href=""><%=cb.getCname() %>[<%=cb.getCode() %>]</a>
+						<a href="mall_cgList.jsp?code=<%=cb.getCode()%>&cname=<%=cb.getCname()%>"><%=cb.getCname() %>[<%=cb.getCode() %>]</a>
 					</td>
 				</tr>
 			<%

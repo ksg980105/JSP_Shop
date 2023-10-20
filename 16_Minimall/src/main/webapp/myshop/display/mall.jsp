@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="mall_top.jsp"%>
-dddd
 <%
 	request.setCharacterEncoding("UTF-8");
 	
@@ -39,10 +38,10 @@ dddd
 				String imgPath = request.getContextPath()+"/myshop/images/"+pimage;
 			%>
 				<td align="center">
-					<img src="<%=imgPath%>" width="100" heigh="80"><br>
+					<img src="<%=imgPath%>" width="80" height="60"><br>
 					<%=pb.getPname()%><br>
-					<%=pb.getPrice()%>원<br>
-					[<%=pb.getPoint()%>]points
+					<font color=red><%=pb.getPrice()%></font>원<br>
+					<font color=blue>[<%=pb.getPoint()%></font>]points
 				</td>
 				<%
 					if(count%3 == 0){	//3의 배수일 때 한줄 끊기

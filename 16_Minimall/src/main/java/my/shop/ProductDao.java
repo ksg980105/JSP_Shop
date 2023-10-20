@@ -1,6 +1,5 @@
 package my.shop;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -174,7 +173,20 @@ public class ProductDao {
 	      
 	      lists = makeArrayList(rs);
 	      return lists;
-	   }
+	 }
+	
+	public ArrayList<ProductBean> getSelectByCategory(String code) throws Exception {
+		conn = getConnection();
+		ArrayList<ProductBean> lists = new ArrayList<ProductBean>();
+		String sql = "select * from product where pcategory_fk like ?";
+		
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, code+"%");
+		
+		rs = ps.executeQuery();
+		lists = makeArrayList(rs);
+		return lists;
+	}//getSelectByCategory
 }
 
 
