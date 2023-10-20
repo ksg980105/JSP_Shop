@@ -1,5 +1,6 @@
 package my.shop;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -160,6 +161,20 @@ public class ProductDao {
 
 			return cnt;
 	}//updateProduct
+	
+	public ArrayList<ProductBean> getSelectByPspec(String spec) throws Exception{
+	      ArrayList<ProductBean> lists = new ArrayList<ProductBean>();
+	      conn = getConnection();
+	      
+	      String sql = "select * from product where pspec=?";
+	      ps = conn.prepareStatement(sql);
+	      ps.setString(1, spec);
+		      
+	      rs = ps.executeQuery();
+	      
+	      lists = makeArrayList(rs);
+	      return lists;
+	   }
 }
 
 

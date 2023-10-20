@@ -13,13 +13,20 @@
     
 <%
 	String cPath = request.getContextPath();
+	String memid = (String)session.getAttribute("memid");
 %>
 
 <table border="1" align="center" width="800">
 	<tr height="50">
 		<td colspan="2" align="center">
 				<a href="<%=cPath%>/main.jsp">HOME</a>|
-				<a href="<%=cPath%>/myshop/admin/main.jsp">관리자홈</a>|
+				<%
+					if(memid.equals("admin")){
+				%>
+						<a href="<%=cPath%>/myshop/admin/main.jsp">관리자홈</a>|
+				<%
+					}
+				%>
 				<a href="<%=cPath%>/myshop/display/mall.jsp">쇼핑몰홈</a>|
 				<a href="<%=cPath%>/myshop/display/mall_cartList.jsp">장바구니</a>|
 				<a href="<%=cPath%>/myshop/board/list.jsp">게시판</a>|
@@ -28,7 +35,7 @@
 				<a href="<%=cPath%>/logout.jsp" class="right">
 					<img src="<%=cPath%>/img/logout3.jpg" width="50" height="20">
 				</a>
-			<span class="right">admin님</span>
+			<span class="right"><%=memid%>님</span>
 		</td>
 	</tr>
 	<tr height="400">
@@ -61,6 +68,6 @@
 			%>
 			</table>
 		</td>
-		<td>     
+		<td align="center" valign="top">     
 
 	

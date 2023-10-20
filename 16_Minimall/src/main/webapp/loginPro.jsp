@@ -17,10 +17,11 @@
 	if(mdto != null){
 		String _id = mdto.getId();
 		if(_id.equals("admin")){		//관리자
-	viewPage = request.getContextPath() + "/myshop/admin/main.jsp";
+			viewPage = request.getContextPath() + "/myshop/admin/main.jsp";
 		}else{	//일반회원
-	viewPage = request.getContextPath() + "/myshop/display/mall.jsp";
+			viewPage = request.getContextPath() + "/myshop/display/mall.jsp";
 		}
+		session.setAttribute("memid", id);
 	}else{
 		//가입하지 않은 회원
 		viewPage = request.getContextPath() + "/main.jsp";
