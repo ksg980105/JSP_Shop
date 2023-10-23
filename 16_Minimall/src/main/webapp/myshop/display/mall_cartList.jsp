@@ -56,7 +56,8 @@
 						<%=pb.getPname()%>
 					</td>
 					<td>
-						<form name="f" method="post" action="">
+						<form name="f" method="post" action="mall_cartEdit.jsp">
+							<input type="hidden" name="pnum" value="<%=pb.getPnum()%>">
 							<input type="text" name="oqty" size="5"	value="<%=pb.getPqty()%>">개
 							<input type="submit" value="수정">
 						</form>

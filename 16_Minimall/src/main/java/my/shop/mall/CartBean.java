@@ -36,4 +36,18 @@ public class CartBean {	//장바구니
 	public Vector<ProductBean> getAllProducts() {	//장바구니에 담긴 물품 리턴
 		return clist;
 	}
+	
+	public void setEdit(String pnum, String oqty){ //넘어온 pnum의 상품 개수를 oqty로 수정
+		for(ProductBean pb : clist) {
+			if(pb.getPnum()==Integer.parseInt(pnum)) {
+				if(Integer.parseInt(oqty)==0) {
+					clist.removeElement(pb);
+					break;
+				}else {
+					pb.setPqty(Integer.parseInt(oqty));
+					break;					
+				}
+			}
+		}
+	}
 }
