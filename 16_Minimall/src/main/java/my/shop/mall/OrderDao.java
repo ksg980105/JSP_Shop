@@ -2,6 +2,7 @@ package my.shop.mall;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
@@ -53,5 +54,31 @@ public class OrderDao {
 		}
 		
 		return cnt;
+	}
+	
+	public Vector<OrderBean> getOrderList(String id) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Vector<OrderBean> lists = new Vector<OrderBean>();
+		
+		String sql = "select m.name, m.id, p.pname, o.qty, o.amount "
+				+ "from (members m inner join orders o on m.no = o.memno) "
+				+ "inner join product p on o.pnum = p.pnum where id=?";
+		
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, id);
+		rs = ps.executeQuery();
+		
+		while(rs.next()) {
+			OrderBean ob = new OrderBean();
+			ob.setMname(rs.getString("name"));
+			ob.setMid(rs.getString("id"));
+			ob.setPname(rs.getString("pname"));
+			ob.setQty(rs.getInt("qty"));
+			ob.setAmount(rs.getInt("amount"));
+			
+			lists.add(ob);
+		}
+		return lists;
 	}
 }

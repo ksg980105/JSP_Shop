@@ -1,29 +1,30 @@
 package my.shop.mall;
 
 public class OrderBean {
-	private int orderId;
-	private int memno;
-	private int pnum;
+	private String mname;
+	private String mid;
+	private String pname;
 	private int qty;
 	private int amount;
 	
-	public int getOrderId() {
-		return orderId;
+	
+	public String getMname() {
+		return mname;
 	}
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
-	public int getMemno() {
-		return memno;
+	public String getMid() {
+		return mid;
 	}
-	public void setMemno(int memno) {
-		this.memno = memno;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
-	public int getPnum() {
-		return pnum;
+	public String getPname() {
+		return pname;
 	}
-	public void setPnum(int pnum) {
-		this.pnum = pnum;
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 	public int getQty() {
 		return qty;
@@ -37,5 +38,7 @@ public class OrderBean {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	
+	
 	
 }
