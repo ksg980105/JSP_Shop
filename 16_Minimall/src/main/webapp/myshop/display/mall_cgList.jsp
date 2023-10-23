@@ -6,15 +6,18 @@
 
 <%@ include file="mall_top.jsp" %>
 <h3>Welcome to My Mall</h3>
+
 	<%
-	String cname = request.getParameter("cgname");
+	String cname = request.getParameter("cname");
 	String code = request.getParameter("code");
 	
 	ProductDao pdao = ProductDao.getInstance();  
-	ArrayList<ProductBean> plists = pdao.getSelectByCategory(code);  
+	ArrayList<ProductBean> plists = pdao.getSelectByCategory(code);
+	
 	%> 
+	
 		<hr color = green width="80%">
-		<font color=red size=3><strong><%= cname %></strong></font>
+		<font color=red size=3><strong><%=cname%></strong></font>
 		<hr color = green width="80%">
 		
 		<%if(plists.size()==0){%>

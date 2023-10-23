@@ -60,4 +60,8 @@ public class CartBean {	//장바구니
 			}
 		}
 	}
+	
+	public void removeAllProducts() {
+		clist.removeAllElements(); //장바구니 안에 모든 요소 삭제
+	}
 }

@@ -22,6 +22,7 @@
 			viewPage = request.getContextPath() + "/myshop/display/mall.jsp";
 		}
 		session.setAttribute("memid", id);
+		session.setAttribute("memno", mdto.getNo());
 	}else{
 		//가입하지 않은 회원
 		viewPage = request.getContextPath() + "/main.jsp";

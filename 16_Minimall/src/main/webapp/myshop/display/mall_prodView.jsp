@@ -12,6 +12,11 @@
 		
 		location.href = "mall_cartAdd.jsp?pnum="+pnum+"&ovalue="+ovalue;
 	}
+	
+	function goOrder(pnum){
+		document.f.action="<%=request.getContextPath()%>/myshop/display/mall_order.jsp?pnum="+pnum;
+		document.f.submit();
+	}
 </script>
 
 <%@ include file="mall_top.jsp"%>
@@ -56,7 +61,7 @@
 								</a>
 							</td>
 							<td>
-								<a href="">
+								<a href="javascript:goOrder('<%=pb.getPnum()%>')">
 									<img src="<%=request.getContextPath()%>/img/orderbtn.gif" width="100" height="40">
 								</a>
 							</td>

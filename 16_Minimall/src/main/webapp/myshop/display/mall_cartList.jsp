@@ -82,8 +82,8 @@
 						<font color=green>총 적립 포인트 : [<%=sumPoint%>] point</font>
 					</td>
 					<td align="left" colspan="2">
-						<a href="#">[주문하기]</a>
-						<a href="#">[계속 쇼핑]</a>
+						<a href="mall_order.jsp?pnum=00&oqty=00">[주문하기]</a>
+						<a href="javascript:history.go(-2)">[계속 쇼핑]</a>
 					</td>
 				</tr>
 			</table>
