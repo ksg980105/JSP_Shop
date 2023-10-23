@@ -21,6 +21,7 @@
 		location.href="mall.jsp";
 	</script>
 <%
+		return; //주문수량 초과시 넘어가지 못하도록
 	}
 	mallCart.addProduct(pnum,ovalue); //ex)10번상품 3개 주문한다.
 	response.sendRedirect("mall_cartList.jsp");

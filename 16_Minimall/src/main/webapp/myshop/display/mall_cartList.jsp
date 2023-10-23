@@ -7,7 +7,10 @@
 <%@ include file="mall_top.jsp"%>
 
 <jsp:useBean id="mallCart" class="my.shop.mall.CartBean" scope="session"/>
-<!-- mall_cartAdd.jsp와 carList.jsp를 모두 같은 객체를 사용해야 지워지지 않기때문에 session 설정 -->
+<!-- 
+	mall_cartAdd.jsp와 carList.jsp를 객체가 새로 생성되지 못하도록 session 설정 
+	설정이 없을시 여러가지 물건을 장바구니에 담을 때 장바구니가 초기화되어 1개만 들어감
+-->
 
 <%
 	Vector<ProductBean> clist = mallCart.getAllProducts();
