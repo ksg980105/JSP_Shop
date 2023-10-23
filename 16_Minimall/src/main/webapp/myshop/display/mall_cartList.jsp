@@ -71,7 +71,7 @@
 						<font color=red>[<%=pb.getPoint()%>] point</font>
 					</td>
 					<td>
-						<a href="">삭제</a>
+						<a href="mall_cartDel.jsp?pnum=<%=pb.getPnum()%>">삭제</a>
 					</td>
 				</tr>
 				<%} %>

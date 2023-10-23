@@ -50,4 +50,14 @@ public class CartBean {	//장바구니
 			}
 		}
 	}
+	
+	public void deleteProduct(String pnum) {
+		for(int i=0; i<clist.size(); i++) {
+			int cPnum = clist.get(i).getPnum();
+			if(cPnum == Integer.parseInt(pnum)) {
+				clist.remove(i);
+				break;
+			}
+		}
+	}
 }
